@@ -6,10 +6,12 @@ import aiogram.dispatcher.dispatcher
 import aiogram.filters
 import aiogram.fsm.context
 import aiogram.fsm.state
+import aiogram.fsm.storage.memory
 import aiogram.fsm.storage.base
 import aiogram.fsm.storage.redis
 import aiogram.types
 import aiogram.utils.keyboard
+import aiogram.client.default
 import aiosqlite
 
 import config
@@ -20,13 +22,7 @@ import tools
 
 bot = aiogram.Bot(token=config.API_TOKEN)
 storage = aiogram.fsm.storage.redis.RedisStorage.from_url(
-    tools.REDIS_URL.format(
-        user=config.REDIS_USER,
-        password=config.REDIS_PASSWORD,
-        host=config.REDIS_HOST,
-        port=config.REDIS_PORT,
-        db=config.REDIS_DB,
-    ),
+    config.REDIS_URL,
 )
 dp = aiogram.dispatcher.dispatcher.Dispatcher(storage=storage)
 

@@ -3,8 +3,6 @@ import aiogram.fsm.storage.memory
 import aiogram.fsm.storage.redis
 import aiogram.types
 
-REDIS_URL = 'redis://{user}:{password}@{host}:{port}/{db}'
-
 
 def get_user_state(
     storage: aiogram.fsm.storage.redis.RedisStorage
