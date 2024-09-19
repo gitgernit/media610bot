@@ -39,6 +39,11 @@ class UserStates(aiogram.fsm.state.StatesGroup):
     waiting_for_approval = aiogram.fsm.state.State()
 
 
+@dp.message(aiogram.filters.Command('start'))
+async def start_handler(message: aiogram.types.Message):
+    await message.answer(strings.GREET)
+
+
 @dp.chat_join_request(
     aiogram.filters.StateFilter(None),
     aiogram.F.chat.id == int(config.CHANNEL_ID),
