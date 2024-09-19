@@ -1,0 +1,7 @@
+.env
+.ruff.toml
+.isort.cfg
+.gitignore
+redisdata
+docker-compose.yaml
+**.db
