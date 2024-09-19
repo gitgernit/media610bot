@@ -11,15 +11,12 @@ import aiogram.fsm.storage.redis
 import aiogram.types
 import aiogram.utils.keyboard
 import aiosqlite
-from dotenv import load_dotenv
 
 import config
 import inlines
 import queries
 import strings
 import tools
-
-load_dotenv()
 
 bot = aiogram.Bot(token=config.API_TOKEN)
 storage = aiogram.fsm.storage.redis.RedisStorage.from_url(
@@ -40,7 +37,7 @@ class UserStates(aiogram.fsm.state.StatesGroup):
 
 
 @dp.message(aiogram.filters.Command('start'))
-async def start_handler(message: aiogram.types.Message):
+async def start_handler(message: aiogram.types.Message) -> None:
     await message.answer(strings.GREET)
 
 
