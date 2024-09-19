@@ -8,7 +8,7 @@ REDIS_URL = 'redis://{user}:{password}@{host}:{port}/{db}'
 
 def get_user_state(
     storage: aiogram.fsm.storage.redis.RedisStorage
-    | aiogram.fsm.storage.redis.RedisStorage,
+    | aiogram.fsm.storage.memory.MemoryStorage,
     bot_id: int | str,
     user_id: int | str,
 ) -> aiogram.fsm.context.FSMContext:
