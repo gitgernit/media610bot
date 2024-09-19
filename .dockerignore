@@ -1,3 +1,5 @@
+venv
+.venv
 .env
 .ruff.toml
 .isort.cfg
