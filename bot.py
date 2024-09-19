@@ -62,7 +62,9 @@ async def pupil_data_handler(
     invite = await bot.send_message(
         config.INVITES_GROUP_ID,
         strings.INVITE.format(
+            user_name=message.from_user.full_name,
             user_login=message.from_user.username,
+            user_id=message.from_user.id,
             user_text=message.text,
         ),
         reply_markup=inlines.invite_inline.as_markup(),
